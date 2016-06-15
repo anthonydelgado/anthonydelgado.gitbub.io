@@ -1,0 +1,983 @@
+/* ------------------------------------------------------------- */
+/* ---------------------------BRKOR----------------------------- */
+/* ------------------------------------------------------------- */
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,100italic,300italic,400italic,700,700italic,900,900italic);
+
+canvas { position: fixed; width: 100%; height: 100%; }
+
+
+/* General Styles ---------------------------------------------- */
+
+body {
+   /* background: url('../img/bg.png'); */
+    background-position: top center;
+    background-attachment: fixed;
+    background-color: #eee;
+    color: #000;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+  /*  padding-top: 50px; */
+   /*   padding-bottom: 10%; */
+	overflow-x: hidden;
+}
+
+#entiresite{
+    padding-top: 50px;
+    display: none;
+    z-index: 99;
+    padding-bottom: 10%;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    outline: none;
+    outline-offset: 0;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    text-transform: uppercase;
+}
+
+a:hover, 
+a:active, 
+a:focus {
+    color: #000;
+    text-decoration: none;
+    outline: none;
+    outline-offset: 0;
+    border-bottom: 1px solid #000;
+}
+
+
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.title {
+    font-size: large;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding-left: 0px;
+}
+
+.title:hover {
+    padding-left: 0px !important;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+hr.empty {
+    padding: 7px 0;
+    border: 0;
+}
+
+strong {
+    font-size: larger;
+    font-weight: normal;
+}
+
+b, strong {
+    font-weight: bold;
+    font-weight: 800;
+    font-size: 125%;
+}
+
+
+.progress {
+    background-color: rgba(0, 0, 0, 0.05);
+    height: 7px;
+    margin-left: 9px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.progress-bar {
+    width: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: width 3s ease;
+    -moz-transition: width 3s ease;
+    transition: width 3s ease;
+}
+
+.progress-bar-success {
+    background-color: #3b5998;
+}
+
+.annotation {
+    float: right;
+    opacity: .75;
+    font-style: italic;
+}
+
+.chart {
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    height: 110px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    margin-right: 5%;
+    text-align: center;
+}
+
+.chart canvas {
+    position: absolute;
+    top: 35px;
+    left: 0;
+}
+
+.percent {
+    display: inline-block;
+    line-height: 140px;
+    z-index: 2;
+    opacity: .75;
+    font-style: italic;
+}
+
+.percent:after {
+    content: '%';
+    margin-left: 0.1em;
+}
+
+.skill {
+    display: block;
+}
+
+ul {
+    padding: 10px 0 0 13px;
+    margin: 0;
+    border-left: 3px solid rgba(0, 0, 0, 0.05);
+}
+
+
+ul li {
+    list-style-image: url('../img/list-style.png');
+    padding: 10px 0 10px 27px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+ul li:hover {
+    list-style-image: url('../img/list-style-on.png');
+    padding-left: 40px !important;
+}
+
+.static:hover {
+    padding-left: 27px !important;
+}
+
+ul li p {
+    padding-left: 8px;
+}
+
+ul .note {
+    display: inline-block;
+    margin: 8px;
+    opacity: .75;
+    text-transform: uppercase;
+}
+
+ul .description {
+    opacity: .75;
+}
+
+.title {
+    list-style-image: url('../img/ls.png') !important;
+}
+
+.title:hover {
+    padding-left: 0px !important;
+}
+
+/* Top icons ------------------------------------------------- */
+
+.top-menu {
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 50px;
+    left: 47px;
+    color: #fff;
+    padding: 10px;
+    font-size: 12px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+	width: 40px
+	height: 40px;
+    border-bottom: 0;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.top-menu:hover {
+    background-color: #00ce08;
+    color: #fff;
+    border-bottom: 0;
+}
+
+.top-download-resume {
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 50px;
+    left: 83px;
+    color: #fff;
+    padding: 10px;
+    font-size: 12px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+	width: 40px
+	height: 40px;
+    border-bottom: 0;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.top-download-resume:hover {
+    background-color: #0093ff;
+    color: #fff;
+    border-bottom: 0;
+}
+
+.top-contact {
+    background-color: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 50px;
+    left: 119px;
+    color: #fff;
+    padding: 10px;
+    font-size: 12px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+	width: 40px
+	height: 40px;
+    border-bottom: 0;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.top-contact:hover {
+    background-color: #ff003b;
+    color: #fff;
+    border-bottom: 0;
+}
+
+/* Nav ------------------------------------------------- */
+
+nav {
+    position: fixed;
+    top: 33%;
+    left: 50px;
+    z-index: 999;
+}
+
+nav ul {
+    padding: 10px 0 0 10px;
+    margin: 0px;
+    border-left: 4px solid rgba(0, 0, 0, 0.05);
+}
+
+nav ul li:first-child {
+    margin-top: -25px;
+}
+
+nav ul li {
+    list-style-image: url('../img/list-style-nav.png');
+    padding: 5px 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+nav ul li:hover {
+    list-style-image: url('../img/list-style-nav-on.png');
+    padding-left: 25px !important;
+    color: #000;
+}
+
+nav ul li:hover a {
+    color: #000;
+    line-height: 250%;
+}
+
+nav ul li.active {
+    list-style-image: url('../img/list-style-nav-on.png');
+    color: #000;
+}
+
+nav a {
+    border-bottom: 0;
+}
+
+nav a:hover, 
+nav a:active, 
+nav a:focus {
+    border-bottom: 0;
+}
+
+nav li a {
+    border-bottom: 0;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: large;
+    font-weight: 800;
+}
+
+nav .active a {
+    color: #000;
+    font-weight: bold;
+}
+
+.opacityentiresite {
+        opacity: 0.9;
+    background-color: #000;
+    color: #000;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: thin dotted;
+    outline-color: black;
+    outline-style: auto;
+    outline-width: 0px;
+    outline: 0px auto black;
+    outline-color: black;
+    outline-style: auto;
+    outline-width: 0px;
+    outline-offset: 0px;
+    border-color: black;
+}
+
+.fa-bars, .fa-arrow-left {
+    font-size: 40px !important;
+}
+
+
+@media screen and (max-height: 568px) {
+
+.fa-bars, .fa-arrow-left {
+    font-size: 30px !important;
+}
+
+#mini-nav ul li:hover , #mini-nav .dropdown-menu > li > a {
+    font-size: 18px !important;
+
+    line-height: 200%;
+    font-size: 25px;
+}
+
+}
+@media screen and (max-width: 600px) {
+ 
+.mobileblackout {
+background-color: #000;
+    }
+
+.mobilehidden {
+display: none;
+    }
+
+.opacityentiresite {
+        opacity: 1;
+    background-color: #000;
+    color: #000;
+display: none;
+}
+
+}
+
+.opacityentiresite .progress-bar-success, 
+.opacityentiresite .chart canvas {
+        opacity: 0.3;
+}
+
+
+.progress-bar-success, 
+.chart canvas {
+        opacity: 0.7;
+}
+
+.opacityentiresite img{
+        opacity: 0.2; 
+}
+
+
+.opacityentiresite h1{
+        opacity: 0.9;
+    background-color: #000;
+    color: #000;
+    border: none;
+}
+
+#mini-nav {
+   /* background-color: #007bb6; */
+    position: fixed;
+    top: -100px;
+    left: 5px;
+    text-align: left;
+    font-weight: bold; 
+}
+
+
+.minifull {
+    width: 100%;
+    height: 100%;
+}
+
+#mini-nav ul li:hover a {
+    color: #fff;
+    line-height: 250%;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+#mini-nav ul {
+    width: 100%;
+    border: 0;
+    padding: 7px 0 10px 0;
+    
+}
+
+#mini-nav ul li {
+    list-style-image: none;
+    padding: 0 !important;
+}
+
+#mini-nav ul li:first-child {
+    margin-top: 0;
+}
+
+#mini-nav .dropdown-menu {
+    margin: 0;
+    font-size: 14px;
+    list-style: none;
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+
+    width: 100%;
+    height: 100%;
+}
+
+.dropdown .btn-default {
+    color: #007bb6;
+    background-color: transparent;
+    border-color: #007bb6;
+    border-radius: 0px;
+}
+
+
+.dropdown-toggle {
+    color: white;
+    font-size: large;
+    font-weight: 800;
+}
+
+.dropdown-menu > .active > a, 
+.dropdown-menu > .active > a:hover, 
+.dropdown-menu > .active > a:focus {
+    color: #007bb6 !important;
+    font-size: 30px !important;
+    font-weight: 900;
+    background-color: transparent !important;
+}
+
+#mini-nav .dropdown-menu > li > a {
+    color: #fff;
+    font-size: 23px;
+    font-weight: 700;
+    background-color: transparent;
+    line-height: 250%;
+
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: transparent !important;
+    color: #007bb6 !important;
+    font-size: 30px !important;
+    font-weight: 900 !important;
+
+}
+
+/* Header ------------------------------------------------- */
+
+header {
+    min-height: 730px;
+}
+.face {
+    height: 250px;
+    width: 250px;
+    border-radius: 125px;    
+    opacity: .9;
+}
+
+.facezoom {
+    height: 500px;
+    width: 500px;
+    border-radius: 250px;
+    opacity: .8;
+}
+
+.header-name {
+    background-color: #000;
+    padding: 5px 32px;
+    display: inline-block;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border-left: 5px solid #dd4b39;
+    border-right: 5px solid #3b5998;
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.header-subtitle {
+    padding-top: 25px;
+    font-style: italic;
+    margin-bottom: 100px;
+    line-height: 250%;
+}
+
+.portfolio img {
+    width: 100px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.portfolio img:hover {
+    opacity: .75;
+}
+
+.portfolio img:first-child {
+    margin-left: 8px;
+}
+
+.dismiss {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.25);
+    top: -4px;
+    left: 100%;
+    color: #fff;
+    padding: 5px 7px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border-bottom: 0 !important;
+    z-index: -1;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.dismiss:hover {
+    background-color: #fff;
+}
+
+.modal {
+	text-align: center;
+}
+
+.modal img {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/* Contact Form ------------------------------------------------ */
+
+.contact ul li:hover {
+    padding-left: 27px;
+}
+
+form {
+    margin-left: 9px;
+}
+
+.input-group .form-control { 
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: 900;
+}
+
+.contact-on {
+    position: fixed;
+    bottom: 50px;
+    background: #202020;
+    height: auto;
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    z-index: 999;
+    display: none;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 6px 15px;
+    font-size: 12px;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.75);
+    background-image: none;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+textarea.form-control {
+    height: 85px;
+    resize: none;
+}
+
+.input-group-addon {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+ 
+
+.btn-success {
+    font-size: 23px;
+    font-weight: 900;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: #000; 
+    text-transform: uppercase;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.btn-success:hover, 
+.btn-success:focus, 
+.btn-success:active, 
+.btn-success.active {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+
+/* Up ------------------------------------------------ */
+
+
+.up {
+    cursor: pointer;
+}
+
+/* Settings ------------------------------------------------ */
+
+.settings {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    left: -200px;
+    width: 200px;
+    height: 120px;
+    color: #fff;
+    z-index: 1000;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.settings:hover {
+    left: 0;
+}
+
+
+.settings .btn {
+    display: block;
+    border: 0;
+    color: #fff;
+    border-radius: 0;
+    margin: 0 20px;
+    font-size: 13px;
+}
+
+.settings .btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.settings .btn.active {
+    background-color: #0066ff;
+    color: #fff;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+
+
+
+
+.title .glyphicon {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    left: -110px;
+    padding: 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    font-size: large;
+}
+
+
+.dropdown .btn .glyphicon {
+    margin-right: 0px;
+    /* opacity: .8; */
+}
+
+
+
+.contact .title .glyphicon{
+    background-color: #00c60f;
+}
+
+
+
+
+.btn .glyphicon {
+    margin-right: 7px;
+    opacity: 1;
+}
+
+
+
+.contact .title.up .glyphicon{
+    background-color: #ffad00;
+}
+
+
+form .glyphicon {
+    opacity: .25;
+    font-size: large;
+}
+
+
+/* Profile ------------------------------------------------- */
+
+.profile .title .glyphicon{
+    background-color: #3b5998;
+}
+
+/* Work experience ------------------------------------------------- */
+
+.work-experience .title .glyphicon{
+    background-color: #007bb6;
+}
+
+/* Education ------------------------------------------------- */
+
+.education .title .glyphicon{
+    background-color: #bb0000;
+}
+
+/* Professional skills ------------------------------------------------- */
+
+.professional-skills .title .glyphicon{
+    background-color: #dd4b39;
+}
+
+/* Personal skills ------------------------------------------------- */
+
+.personal-skills .title .glyphicon{
+    background-color: #00aced;
+}
+
+/* Interests ------------------------------------------------- */
+
+.interests .title .glyphicon{
+    background-color: #cb2027;
+}
+
+/* Portfolio ------------------------------------------------ */
+
+.portfolio .title .glyphicon{
+    background-color: #ea4c89;
+}
+
+
+.settings .glyphicon {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: relative;
+    top: 0;
+    left: 100%;
+    padding: 12px;
+    border-radius: 0 3px 3px 0;
+}
+
+
+
+.opacityentiresite .title .glyphicon { 
+    opacity: .1;
+}
+
+
+
+
+.title .fa {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    left: -110px;
+    padding: 10px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    font-size: large;
+
+    position: relative;
+}
+
+
+.dropdown .btn .fa {
+    margin-right: 0px;
+    /* opacity: .8; */
+}
+
+
+
+.contact .title .fa{
+    background-color: #00c60f;
+}
+
+
+
+
+.btn .fa {
+    margin-right: 7px;
+    opacity: 1;
+}
+
+
+
+.contact .title.up .fa{
+    background-color: #ffad00;
+}
+
+
+form .fa {
+    opacity: .25;
+    font-size: large;
+}
+
+
+/* Profile ------------------------------------------------- */
+
+.profile .title .fa{
+    background-color: #3b5998;
+}
+
+/* Work experience ------------------------------------------------- */
+
+.work-experience .title .fa{
+    background-color: #007bb6;
+}
+
+/* Education ------------------------------------------------- */
+
+.education .title .fa{
+    background-color: #bb0000;
+}
+
+/* Professional skills ------------------------------------------------- */
+
+.professional-skills .title .fa{
+    background-color: #dd4b39;
+}
+
+/* Personal skills ------------------------------------------------- */
+
+.personal-skills .title .fa{
+    background-color: #00aced;
+}
+
+/* Interests ------------------------------------------------- */
+
+.interests .title .fa{
+    background-color: #cb2027;
+}
+
+/* Portfolio ------------------------------------------------ */
+
+.portfolio .title .fa{
+    background-color: #ea4c89;
+}
+
+
+.settings .fa {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: relative;
+    top: 0;
+    left: 100%;
+    padding: 12px;
+    border-radius: 0 3px 3px 0;
+}
+
+
+
+.opacityentiresite .title .fa { 
+    opacity: .1;
+}
+
+
