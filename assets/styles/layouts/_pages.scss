@@ -1,68 +1,25 @@
 body {
-  background-color: $body-background;
-  color: $content-background;
   font-family: 'Roboto', sans-serif;
 }
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  position: absolute;
-  width: 960px;
+body.home {
+  background: url('../images/code.jpg') no-repeat center;
+  background-size: cover;
 }
-header, nav, section, aside, footer {
-  background-color: $content-background;
-  color: $body-background;
+.homepage-welcome {
   padding: 15px;
-  margin-top: 15px;
   text-align: center;
+  margin-top: 100px;
+  min-height: 100vh;
 }
 
-section {
-  float: left;
-  width: 660px;
-  margin-bottom: 15px;
-  height: 300px;
+#profile-img {
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  border-radius: 50%;
 }
-aside {
-  float: left;
-  width: 255px;
-  height: 300px;
-  margin-left: 15px;
-}
-
-footer {
-  clear: both;
-  margin-bottom: 15px;
-}
-article {
-  background-color: $body-background;
-  color: $content-background;
-  padding: 15px;
-  margin-top: 15px;
-  h1, h2, h3 {
-    display: inline-block;
-    font-size: 20px;
-  }
-  div, p{
-    background-color: $content-background;
-    color: $body-background;
-    padding: 15px;
-    margin-top: 15px;
-  }
-}
-
-@media (max-width: 960px) {
-  aside, section {
-    width: 100%;
-  }
-  aside {
-    margin-top: 0;
-    margin-left: 0;
-    margin-bottom: 15px;
-  }
-  .container {
-    width: 100%;
-  }
+.thumbnail {
+  background-color: rgba(255,255,255,.85);
+  border: none;
+  border-radius: 3%;
 }
