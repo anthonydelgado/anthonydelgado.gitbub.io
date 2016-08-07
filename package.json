@@ -1,0 +1,22 @@
+{
+  "name": "anthonydelgado.github.io",
+  "version": "1.0.0",
+  "description": "personal portfolio website of anthony delgado",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonydelgado/anthonydelgado.github.io.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "anthony delgado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonydelgado/anthonydelgado.github.io/issues"
+  },
+  "homepage": "https://github.com/anthonydelgado/anthonydelgado.github.io#readme"
+}
