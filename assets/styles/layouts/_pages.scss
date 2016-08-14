@@ -1,7 +1,15 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
-
+a {
+  text-decoration: none;
+  &:hover,
+  &:active,
+  &:focus,
+  &:{
+    text-decoration: none;
+  }
+}
 .home {
   height: 300px;
   width: 100%;
@@ -42,13 +50,20 @@ body {
 
 .devicons {
   font-size: 64px;
-  color: $brand-primary;
+  color: white;
+  background-color: $brand-primary;
   text-align: center;
-  border: 1px solid;
+  border: 2px solid $brand-primary;
   padding: 15px;
   margin: 15px;
   border-radius: 50%;
   height: 96px;
   width: 96px;
   display: block;
+  transition: all .25s;
+  text-decoration: none;
+  @include hover-state {
+    color: $brand-primary;
+    background-color: white;
+  }
 }
