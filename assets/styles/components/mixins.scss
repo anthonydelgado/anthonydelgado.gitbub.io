@@ -1,9 +1,0 @@
-@mixin flex-set($justify-content) {
-  display: flex;
-  justify-content: $justify-content;
-}
-@mixin hover-state {
-  &:hover, &:active, &:focus {
-    @content;
-  }
-}
