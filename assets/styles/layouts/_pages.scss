@@ -1,71 +1,29 @@
-body {
-
-  background: rgb(230,230,230);
-
-  color: rgb(50,50,50);
-
+html {
   font-family: -apple-system, BlinkMacSystemFont,
   "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
   "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
 }
-a, a:hover, a:active, a:focus {
-  text-decoration: none;
-}
-.home {
-  height: 300px;
-  width: 100%;
-  background: url('../images/code.jpg') no-repeat center;
-  background-size: cover;
-}
 
-.homepage-welcome {
-  padding: 15px;
-  text-align: center;
-  margin-top: -190px;
-}
 
-#profile-img {
-  width: 200px;
-  height: 200px;
-  margin-top: -100px;
-  border-radius: 50%;
-}
-
-.thumbnail {
-  background-color: rgba(255, 255, 255, .85);
-  border: none;
-  border-radius: 3%;
-}
-//col-xs-6 col-sm-3
-.skills .col-xs-6{
-  @include flex-set(center);
-}
-
-.social {
-  .fa {
-    font-size: 32px;
-    margin: 5px;
-    color: black;
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 90%;
   }
 }
 
-.devicons {
-  font-size: 64px;
-  color: white;
-  background-color: $brand-primary;
-  text-align: center;
-  border: 2px solid $brand-primary;
-  padding: 15px;
-  margin: 15px;
-  border-radius: 50%;
-  height: 96px;
-  width: 96px;
-  display: block;
-  transition: all .25s;
-  text-decoration: none;
-  @include hover-state {
-    color: $brand-primary;
-    background-color: white;
-  }
+.linkedin {
+  background-color:  #007bb6 !important;
+}
+.youtube {
+  background-color:  #bb0000 !important;
+}
+h1 {
+  font-weight: 900;
+}
+h3 {
+  font-weight: 300;
+}
+.max-headshot {
+  max-width: 250px;
 }
